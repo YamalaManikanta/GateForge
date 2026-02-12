@@ -1,0 +1,5 @@
+{
+  "name": "GATE Forge",
+  "description": "A minimal, offline-first performance tracker for GATE CSE focused on reducing errors and optimizing strategy.",
+  "requestFramePermissions": []
+}

@@ -1,0 +1,67 @@
+# =========================
+# Dependencies
+# =========================
+node_modules/
+
+# =========================
+# Build Outputs (Web)
+# =========================
+dist/
+dist-ssr/
+build/
+out/
+
+# =========================
+# Electron Build Outputs
+# =========================
+dist-electron/
+dist_installer/
+release/
+*.exe
+*.msi
+*.dmg
+*.AppImage
+
+# =========================
+# Logs
+# =========================
+logs/
+*.log
+npm-debug.log*
+yarn-debug.log*
+yarn-error.log*
+pnpm-debug.log*
+lerna-debug.log*
+
+# =========================
+# Environment Files
+# =========================
+.env
+.env.local
+.env.*.local
+
+# =========================
+# Cache / Temporary
+# =========================
+.cache/
+.vite/
+coverage/
+*.local
+
+# =========================
+# OS Files
+# =========================
+.DS_Store
+Thumbs.db
+
+# =========================
+# IDE / Editor
+# =========================
+.vscode/*
+!.vscode/extensions.json
+.idea/
+*.suo
+*.ntvs*
+*.njsproj
+*.sln
+*.sw?

@@ -1,0 +1,134 @@
+/* 
+   Tailwind is now loaded via CDN in index.html for stability.
+   This file retains global overrides and scrollbar styling.
+*/
+
+:root {
+  /* Variables kept for reference, though CDN config uses hardcoded values for safety */
+  --g-950: #0a0a0a;
+  --g-900: #121212;
+  --g-800: #1e1e1e;
+  --g-700: #2d2d2d;
+  --g-600: #454545;
+  --g-500: #757575;
+  --g-400: #a3a3a3;
+  --g-300: #d4d4d4;
+  --g-200: #e5e5e5;
+  --g-100: #ffffff;
+  
+  --grid-color: rgba(255, 255, 255, 0.03);
+  --glass-bg: rgba(30, 30, 30, 0.6);
+  --glass-border: rgba(255, 255, 255, 0.08);
+}
+
+html {
+  /* Enables native dark mode for form controls (Date picker, scrollbars) */
+  color-scheme: dark; 
+  scroll-behavior: smooth;
+}
+
+body {
+  background-color: #0a0a0a; /* Fallback */
+  color: #d4d4d4;
+  font-family: 'Outfit', sans-serif;
+  font-weight: 400;
+  overflow-x: hidden;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+/* 
+   CRITICAL FIX: Enforce interactivity on form elements.
+   This prevents overlay animations or drag-regions from accidentally disabling inputs.
+*/
+input, textarea, select, button, label {
+  pointer-events: auto !important;
+  position: relative; 
+  z-index: 1; /* Slight elevation to ensure they sit on top of container backgrounds */
+}
+
+/* Custom scrollbar */
+::-webkit-scrollbar {
+  width: 6px;
+  height: 6px;
+}
+::-webkit-scrollbar-track {
+  background: transparent; 
+}
+::-webkit-scrollbar-thumb {
+  background: #2d2d2d; 
+  border-radius: 99px;
+  transition: background 0.2s ease;
+}
+::-webkit-scrollbar-thumb:hover {
+  background: #454545; 
+}
+
+/* Animation Delays Utility */
+.delay-0 { animation-delay: 0ms; }
+.delay-75 { animation-delay: 75ms; }
+.delay-100 { animation-delay: 100ms; }
+.delay-150 { animation-delay: 150ms; }
+.delay-200 { animation-delay: 200ms; }
+.delay-300 { animation-delay: 300ms; }
+.delay-500 { animation-delay: 500ms; }
+
+/* Subtle Grid Background */
+.bg-grid-pattern {
+  background-size: 50px 50px;
+  background-image: linear-gradient(to right, var(--grid-color) 1px, transparent 1px),
+                    linear-gradient(to bottom, var(--grid-color) 1px, transparent 1px);
+  mask-image: radial-gradient(circle at center, black 40%, transparent 100%);
+  pointer-events: none; /* Ensures grid never blocks clicks */
+  z-index: 0;
+}
+
+/* Utilities */
+.glass-panel {
+  background: var(--glass-bg);
+  backdrop-filter: blur(12px);
+  border: 1px solid var(--glass-border);
+  box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.05);
+}
+
+* {
+  -webkit-tap-highlight-color: transparent;
+}
+
+@media print {
+  @page { margin: 1cm; size: auto; }
+  
+  html, body {
+    height: auto !important;
+    margin: 0 !important;
+    padding: 0 !important;
+    overflow: visible !important;
+    background: white !important;
+  }
+
+  body * {
+    visibility: hidden;
+  }
+
+  #printable-section, #printable-section * {
+    visibility: visible;
+  }
+
+  #printable-section {
+    position: absolute !important;
+    left: 0 !important;
+    top: 0 !important;
+    width: 100% !important;
+    margin: 0 !important;
+    padding: 0 !important;
+    background: white !important;
+    color: black !important;
+    z-index: 9999 !important;
+  }
+
+  p, h1, h2, h3, h4, h5, h6, li, span, div {
+      color: black !important;
+      -webkit-print-color-adjust: exact;
+      print-color-adjust: exact;
+  }
+}
