@@ -378,7 +378,7 @@ Solved with:
 ## Clone Repository
 
 ```bash
-git clone https://github.com/yourusername/gate-forge.git
+git clone https://github.com/YamalaManikanta/gate-forge.git
 cd gate-forge
 ```
 
